@@ -11,10 +11,11 @@ import (
 
 func main() {
 	opts := bolt.Options{}
-	err := db.InitDB(&opts)
+	err := db.InitDB("task.db", &opts)
 	if err != nil {
 		fmt.Println("Failed to open db")
 		os.Exit(1)
 	}
+	defer db.CloseDB()
 	cmd.RootCmd.Execute()
 }

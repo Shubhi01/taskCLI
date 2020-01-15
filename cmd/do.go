@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"task/db"
 
 	"github.com/spf13/cobra"
 )
@@ -23,6 +24,7 @@ var doCmd = &cobra.Command{
 			ids = append(ids, id)
 		}
 		fmt.Println(ids)
+		db.DeleteTask(id)
 	},
 }
 

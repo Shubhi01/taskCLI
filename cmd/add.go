@@ -14,7 +14,7 @@ var AddCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		taskDescr := strings.Join(args, " ")
 		task := db.Task{Description: taskDescr}
-		err := db.AddTask(&task)
+		id, err := db.AddTask(&task)
 		if err != nil {
 			fmt.Println("Failed to add task")
 		}
